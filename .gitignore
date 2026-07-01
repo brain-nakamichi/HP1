@@ -1,0 +1,41 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.dev-out.log
+.dev-err.log
+
+# next.js build output emitted at repo root
+/app-build-manifest.json
+/build-manifest.json
+/prerender-manifest.json
+/react-loadable-manifest.json
+/routes-manifest.json
+/trace
+/cache/
+/server/
+/static/
+
+# env files
+.env*
+!.env*.example
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
