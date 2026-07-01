@@ -1,4 +1,4 @@
-import { getSupabase } from "@/lib/supabase";
+import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
 import type { Contact, Work, Service, News, ContactStatus } from "@/lib/types";
 
 /* ============================================================
@@ -33,6 +33,7 @@ function toContact(r: ContactRow): Contact {
 }
 
 export async function getContacts(): Promise<Contact[]> {
+  if (!isSupabaseConfigured()) return [];
   const { data, error } = await getSupabase()
     .from("contacts")
     .select("*")
@@ -74,6 +75,7 @@ export async function deleteContact(id: string): Promise<void> {
 /* ---------------- Works ---------------- */
 
 export async function getWorks(): Promise<Work[]> {
+  if (!isSupabaseConfigured()) return [];
   const { data, error } = await getSupabase()
     .from("works")
     .select("*")
@@ -103,6 +105,7 @@ export async function deleteWork(id: string): Promise<void> {
 /* ---------------- Services ---------------- */
 
 export async function getServices(): Promise<Service[]> {
+  if (!isSupabaseConfigured()) return [];
   const { data, error } = await getSupabase()
     .from("services")
     .select("*")
@@ -132,6 +135,7 @@ export async function deleteService(id: string): Promise<void> {
 /* ---------------- News ---------------- */
 
 export async function getAllNews(): Promise<News[]> {
+  if (!isSupabaseConfigured()) return [];
   const { data, error } = await getSupabase()
     .from("news")
     .select("*")
@@ -141,6 +145,7 @@ export async function getAllNews(): Promise<News[]> {
 }
 
 export async function getPublishedNews(): Promise<News[]> {
+  if (!isSupabaseConfigured()) return [];
   const { data, error } = await getSupabase()
     .from("news")
     .select("*")
